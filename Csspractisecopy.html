@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Project</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+padding:0;
+scroll-behavior:smooth;
+background:white;
+color:black;
+}
+
+.dark{
+background:#121212;
+color:white;
+}
+
+/* Navbar */
+
+nav{
+background:#333;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:20px;
+text-decoration:none;
+font-size:18px;
+}
+
+/* Sections */
+
+section{
+height:500px;
+padding:40px;
+}
+
+#home{
+background:#f4f4f4;
+}
+
+#about{
+background:#ddd;
+}
+
+#contact{
+background:#f4f4f4;
+}
+
+/* Form */
+
+form{
+width:300px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+padding:10px;
+cursor:pointer;
+}
+
+.error{
+color:red;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button onclick="toggleMode()">🌙 Dark Mode</button>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+
+<h1>Welcome to My Website</h1>
+
+<p>This webpage demonstrates three important web development features:</p>
+
+<ul>
+<li>Dark Mode Toggle</li>
+<li>Smooth Scrolling</li>
+<li>Form Validation</li>
+</ul>
+
+</section>
+
+<section id="about">
+
+<h1>About Section</h1>
+
+<p>
+This section is just to demonstrate smooth scrolling navigation.
+When you click the links in the navigation bar, the page scrolls smoothly
+to the selected section.
+</p>
+
+</section>
+
+<section id="contact">
+
+<h1>Contact Form</h1>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Enter your name">
+
+<input type="email" id="email" placeholder="Enter your email">
+
+<input type="text" id="phone" placeholder="Enter phone number">
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="error" class="error"></p>
+
+</section>
+
+<script>
+
+function toggleMode(){
+
+document.body.classList.toggle("dark");
+
+}
+
+function validateForm(){
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let phone=document.getElementById("phone").value;
+
+if(name=="" || email=="" || phone==""){
+
+document.getElementById("error").innerHTML="All fields are required";
+
+return false;
+
+}
+
+if(phone.length<10){
+
+document.getElementById("error").innerHTML="Phone number must be 10 digits";
+
+return false;
+
+}
+
+alert("Form Submitted Successfully");
+
+return true;
+
+}
+
+</script>
+
+</body>
+</html>
